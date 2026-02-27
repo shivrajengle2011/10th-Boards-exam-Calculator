@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>CBSE & SSC 10th Percentage Calculator 2026 | Best of 5 & Grade Calculator</title>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="Free CBSE and SSC 10th percentage calculator 2026. Calculate CBSE Best of 5 percentage and SSC total percentage with grade instantly.">
+
+  <meta name="keywords" content="CBSE 10th percentage calculator, SSC percentage calculator Maharashtra, Best of 5 calculator CBSE, 10th grade calculator">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f4f6ff;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    h1, h2, h3 {
+      text-align: center;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #4e73df;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .result {
+      margin-top: 15px;
+      padding: 15px;
+      background: #eef2ff;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .faq {
+      margin-top: 30px;
+    }
+
+    .faq h3 {
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>CBSE & SSC 10th Percentage Calculator 2026</h1>
+
+  <p>This free calculator helps students calculate CBSE Best of 5 percentage and SSC total percentage with grade instantly.</p>
+
+  <h2>Select Your Board</h2>
+
+  <select onchange="showBoard(this.value)">
+    <option value="">Select Board</option>
+    <option value="cbse">CBSE</option>
+    <option value="ssc">SSC (Maharashtra)</option>
+  </select>
+
+  <!-- CBSE -->
+  <div id="cbse" style="display:none;">
+    <h2>CBSE Best of 5 Calculator</h2>
+    <input type="number" placeholder="Subject 1" id="c1">
+    <input type="number" placeholder="Subject 2" id="c2">
+    <input type="number" placeholder="Subject 3" id="c3">
+    <input type="number" placeholder="Subject 4" id="c4">
+    <input type="number" placeholder="Subject 5" id="c5">
+    <input type="number" placeholder="Subject 6 (Optional)" id="c6">
+    <button onclick="calculateCBSE()">Calculate CBSE Percentage</button>
+  </div>
+
+  <!-- SSC -->
+  <div id="ssc" style="display:none;">
+    <h2>SSC Percentage Calculator (Maharashtra)</h2>
+    <input type="number" placeholder="Subject 1" id="s1">
+    <input type="number" placeholder="Subject 2" id="s2">
+    <input type="number" placeholder="Subject 3" id="s3">
+    <input type="number" placeholder="Subject 4" id="s4">
+    <input type="number" placeholder="Subject 5" id="s5">
+    <input type="number" placeholder="Subject 6" id="s6">
+    <button onclick="calculateSSC()">Calculate SSC Percentage</button>
+  </div>
+
+  <div class="result" id="output"></div>
+
+  <div class="faq">
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>How is CBSE percentage calculated?</h3>
+    <p>CBSE percentage is calculated using Best of 5 subjects. The highest five marks are added and divided by 500.</p>
+
+    <h3>How is SSC percentage calculated?</h3>
+    <p>SSC percentage is calculated by adding all six subjects and dividing by 600.</p>
+
+    <h3>Is this calculator accurate?</h3>
+    <p>Yes, this calculator follows official CBSE and Maharashtra SSC calculation rules.</p>
+  </div>
+
+</div>
+
+<script>
+function showBoard(board) {
+  document.getElementById("cbse").style.display = "none";
+  document.getElementById("ssc").style.display = "none";
+
+  if (board === "cbse") document.getElementById("cbse").style.display = "block";
+  if (board === "ssc") document.getElementById("ssc").style.display = "block";
+}
+
+function calculateCBSE() {
+  let marks = [
+    parseFloat(c1.value)||0,
+    parseFloat(c2.value)||0,
+    parseFloat(c3.value)||0,
+    parseFloat(c4.value)||0,
+    parseFloat(c5.value)||0,
+    parseFloat(c6.value)||0
+  ];
+
+  marks.sort((a,b)=>b-a);
+  let best5 = marks.slice(0,5);
+  let total = best5.reduce((a,b)=>a+b,0);
+  let percentage = ((total/500)*100).toFixed(2);
+
+  document.getElementById("output").innerHTML =
+    "CBSE Percentage: " + percentage + "%";
+}
+
+function calculateSSC() {
+  let total =
+    (parseFloat(s1.value)||0) +
+    (parseFloat(s2.value)||0) +
+    (parseFloat(s3.value)||0) +
+    (parseFloat(s4.value)||0) +
+    (parseFloat(s5.value)||0) +
+    (parseFloat(s6.value)||0);
+
+  let percentage = ((total/600)*100).toFixed(2);
+
+  document.getElementById("output").innerHTML =
+    "SSC Percentage: " + percentage + "%";
+}
+</script>
+
+</body>
+</html>
